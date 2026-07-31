@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUGA | Gamefolio</title>
+<meta name="description" content="Découvrez les business games, escape games et métavers créés par BUGA pour Orange, Crunchyroll, BPI France, Walibi, Aésio, Sciences Po, le Parc Astérix et bien d'autres.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#242F69;--navy-deep:#1a2350;--yellow:#FFD500;--teal:#00BABB;--pink:#FB0040;--grey:#f4f5fa;--text:#2b2b33}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Montserrat,system-ui,sans-serif;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:50;background:var(--navy);box-shadow:0 2px 14px rgba(0,0,0,.18)}
+.nav{display:flex;align-items:center;gap:14px;height:74px}
+.brandlink{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brandlink img{height:46px;width:auto}
+.brandlink span{font-weight:800;color:#fff;font-size:23px;letter-spacing:1px}
+.btn{display:inline-block;border:0;cursor:pointer;font-family:inherit;font-weight:700;font-size:13px;letter-spacing:.4px;
+  padding:13px 24px;border-radius:30px;transition:transform .15s,filter .15s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn-teal{background:var(--teal);color:#fff}.btn-yellow{background:var(--yellow);color:var(--navy)}
+.btn-lg{font-size:15px;padding:16px 34px}
+.btn-nav{font-size:15px;padding:14px 30px;box-shadow:0 4px 14px rgba(255,213,0,.28)}
+.btn-nav.on{outline:2px solid rgba(255,255,255,.55);outline-offset:3px}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.42);font-weight:600;
+  font-size:13px;padding:10px 20px}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+.hero{position:relative;background:var(--navy);color:#fff;padding:96px 0 110px;text-align:center;overflow:hidden}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.9}
+.hero .wrap{position:relative;z-index:2}
+.hero .kicker{font-size:13px;font-weight:700;letter-spacing:3px;color:var(--yellow);margin-bottom:14px}
+.hero h1{font-size:clamp(34px,5vw,54px);font-weight:800;line-height:1.12;margin-bottom:16px}
+.hero p{font-size:18px;font-weight:500;opacity:.92;max-width:640px;margin:0 auto 30px}
+
+section{padding:72px 0}
+.h2{font-size:clamp(26px,3.4vw,38px);font-weight:800;color:var(--navy);text-align:center;line-height:1.2}
+.sub{text-align:center;color:#5c6076;margin:12px auto 0;max-width:620px;font-size:16px}
+.filters{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:34px 0 40px}
+.chip{border:2px solid var(--navy);background:transparent;color:var(--navy);font-family:inherit;font-weight:700;
+  font-size:13px;padding:9px 20px;border-radius:30px;cursor:pointer;transition:.15s}
+.chip:hover{background:rgba(36,47,105,.08)}
+.chip.on{background:var(--navy);color:#fff}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+.card{background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 22px rgba(36,47,105,.10);
+  cursor:pointer;display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.card:hover{transform:translateY(-6px);box-shadow:0 14px 34px rgba(36,47,105,.20)}
+.card .thumb{position:relative;aspect-ratio:16/10;background:var(--grey);overflow:hidden}
+.card .thumb img{width:100%;height:100%;object-fit:cover}
+.tag{position:absolute;top:12px;left:12px;z-index:3;background:var(--yellow);color:var(--navy);font-size:11px;
+  font-weight:800;letter-spacing:.6px;padding:6px 12px;border-radius:20px;text-transform:uppercase}
+.card .thumb .brand{position:absolute;inset:0;z-index:2;display:flex;align-items:center;justify-content:center}
+.card .thumb .brand .plate{width:61%;aspect-ratio:2.1/1;background:#fff;border-radius:12px;display:block;
+  padding:5.5% 9%;box-shadow:0 4px 14px rgba(20,25,55,.16)}
+.card .thumb .brand .plate img{display:block;width:100%;height:100%;object-fit:contain}
+.card .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:8px;flex:1}
+.card .meta{font-size:11px;font-weight:700;letter-spacing:.7px;color:var(--teal)}
+.card h3{font-size:17px;font-weight:800;color:var(--navy);line-height:1.3}
+.card .st{font-size:13px;color:#5c6076;font-weight:500;line-height:1.45}
+.card .more{margin-top:auto;padding-top:12px;font-size:12px;font-weight:800;color:var(--pink)}
+
+.trust{background:var(--grey);padding:64px 0;overflow:hidden}
+.trust h2{font-size:clamp(22px,3vw,30px);font-weight:800;color:var(--navy);text-align:center;margin-bottom:8px}
+.trust p{text-align:center;color:#5c6076;font-size:15px;margin-bottom:34px}
+.marquee{position:relative;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;gap:60px;width:max-content;align-items:center;animation:scroll 38s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+.track img{height:52px;width:auto;object-fit:contain;filter:grayscale(1);opacity:.62;transition:.2s}
+.track img:hover{filter:none;opacity:1}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.cta{background:var(--navy);color:#fff;text-align:center;padding:74px 0}
+.cta h2{font-size:clamp(24px,3.2vw,34px);font-weight:800;margin-bottom:14px}
+.cta p{opacity:.88;margin-bottom:26px}
+
+.modal{position:fixed;inset:0;background:rgba(20,25,55,.75);display:none;z-index:100;
+  align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
+.modal.open{display:flex}
+.sheet{background:#fff;max-width:760px;width:100%;border-radius:20px;overflow:hidden;position:relative;animation:pop .22s ease}
+@keyframes pop{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.sheet .cover{aspect-ratio:16/8;background:var(--grey)}
+.sheet .cover img{width:100%;height:100%;object-fit:cover}
+.sheet .inner{padding:30px 34px 38px}
+.sheet .meta{font-size:12px;font-weight:800;letter-spacing:.8px;color:var(--teal);margin-bottom:8px}
+.sheet h3{font-size:26px;font-weight:800;color:var(--navy);line-height:1.2;margin-bottom:6px}
+.sheet .st{font-size:14px;color:#5c6076;font-weight:600;margin-bottom:24px}
+.sheet h4{font-size:12px;font-weight:800;letter-spacing:1.2px;color:var(--pink);margin:22px 0 8px;text-transform:uppercase}
+.sheet p{font-size:15px;line-height:1.65;white-space:pre-line}
+.close{position:absolute;top:14px;right:14px;width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;
+  background:rgba(255,255,255,.92);color:var(--navy);font-size:20px;font-weight:700;line-height:1}
+
+footer{background:var(--navy-deep);color:#fff;padding:52px 0 34px;font-size:14px}
+.fgrid{display:flex;flex-wrap:wrap;gap:36px;justify-content:space-between;align-items:flex-start}
+footer a{opacity:.85}footer a:hover{color:var(--yellow);opacity:1}
+.fbot{margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);opacity:.6;font-size:12px}
+@media(max-width:640px){.brandlink span{display:none}.brandlink img{height:40px}
+  .btn-nav{font-size:14px;padding:12px 22px}.btn-ghost{padding:9px 16px;font-size:12px}
+  section{padding:52px 0}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brandlink" aria-label="BUGA, retour à l'accueil">
+      <img src="assets/logo-buga.svg" alt="BUGA">
+      <span>BUGA</span>
+    </a>
+    <a href="gamefolio.html" class="btn btn-yellow btn-nav on" aria-current="page">Gamefolio</a>
+    <a href="index.html#contact" class="btn btn-ghost">Contactez-nous</a>
+  </div>
+</header>
+
+<div class="hero">
+  <img class="bg" data-a="bg-space.png" alt="">
+  <div class="wrap">
+    <div class="kicker">GAMEFOLIO</div>
+    <h1>La puissance de la gamification<br>à votre service.</h1>
+    <p>Escape games, métavers, parcours ludo-pédagogiques : découvrez ce que nous avons conçu pour nos clients.</p>
+    <a href="#contact" class="btn btn-yellow btn-lg">CONTACTEZ-NOUS !</a>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <h2 class="h2">Découvrez notre gamefolio !</h2>
+    <p class="sub">Cliquez sur une réalisation pour découvrir le contexte client et la solution mise en place.</p>
+    <div class="filters" id="filters"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<div class="trust">
+  <div class="wrap">
+    <h2>Ils nous ont également fait confiance</h2>
+    <p>Des dizaines d'organisations ont ajouté une touche de fun à leur travail avec BUGA.</p>
+  </div>
+  <div class="marquee"><div class="track" id="track"></div></div>
+</div>
+
+<div class="cta" id="contact">
+  <div class="wrap">
+    <h2>Envie d'ajouter une touche de fun à votre travail ?</h2>
+    <p>Une belle histoire commence toujours par quelques mots. Dites-nous en plus sur votre projet.</p>
+    <a href="index.html#contact" class="btn btn-yellow btn-lg">Parlons de votre projet !</a>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <div style="font-weight:800;color:var(--yellow);font-size:20px;margin-bottom:8px">BUGA</div>
+      <div style="opacity:.75">Business Games</div>
+    </div>
+    <div>
+      <div style="font-weight:700;margin-bottom:8px">Contact</div>
+      <a href="mailto:hello@buga.fr">hello@buga.fr</a><br>
+      <span style="opacity:.75">Avignon &nbsp;|&nbsp; Paris</span>
+    </div>
+    <div>
+      <div style="font-weight:700;margin-bottom:8px">Suivez-nous</div>
+      <a href="https://www.linkedin.com/company/bu-ga" target="_blank" rel="noopener">LinkedIn @bu-ga</a>
+    </div>
+  </div>
+  <div class="wrap fbot">&copy; BUGA &nbsp;&middot;&nbsp; <a href="mentions-legales.html">Mentions légales</a></div>
+</footer>
+
+<div class="modal" id="modal">
+  <div class="sheet">
+    <button class="close" id="close" aria-label="Fermer">&times;</button>
+    <div class="cover"><img id="mImg" alt=""></div>
+    <div class="inner">
+      <div class="meta" id="mMeta"></div>
+      <h3 id="mTitle"></h3>
+      <div class="st" id="mSub"></div>
+      <h4>Contexte client</h4>
+      <p id="mCtx"></p>
+      <h4>Solution BUGA</h4>
+      <p id="mSol"></p>
+    </div>
+  </div>
+</div>
+
+<script>
+/* Images locales avec repli distant tant que assets/ n'est pas rempli */
+const CDN='https://s3.amazonaws.com/appforest_uf/';
+const WP='https://buga.fr/wp-content/uploads/2025/07/';
+const REMOTE={
+ "bg-space.png":CDN+"f1702913171746x552800822860338940/Background-space-7.2.png",
+ "acadomia-interclasse.jpg":CDN+"f1707251432168x591970317535820400/Acadomia.png",
+ "acadomia-ra.jpg":CDN+"f1705395889062x773911159927263500/Acadomia%20escape.png",
+ "societe-generale.jpg":CDN+"f1707250980937x386704387279424450/SG.png",
+ "aesio-zombies.jpg":CDN+"f1707250796265x783901229564501000/Aesio%20zombisounours.png",
+ "parc-asterix.jpg":CDN+"f1707250393750x865003387962317800/Parc%20aste%CC%81rix.png",
+ "ministere-femmes-ingenieures.jpg":CDN+"f1707250088639x605326033607606500/Ministe%CC%80re%20FI.png",
+ "nouvelles-donnes.jpg":CDN+"f1707249573150x963541742328899700/Nouvelles%20Donnes%203.png",
+ "crunchyroll-japan-expo.jpg":CDN+"f1707249092516x482626251101439400/Crunchy%20Japan.png",
+ "crunchyroll-twitch.jpg":CDN+"f1703066418374x599884208278340000/Crunchy%20Twitch.png",
+ "sciences-po.jpg":CDN+"f1705399440613x396618731540276500/Sciences%20Po%202.png",
+ "walibi.jpg":CDN+"f1707248476931x521065771661415400/Walibi%203.png",
+ "bpi-big-tour.jpg":CDN+"f1703066239432x901157990445444700/BPI%20CNES.png",
+ "lg-air-solutions.jpg":CDN+"f1703066076282x995191134589641000/LG.png",
+ "adrea.jpg":CDN+"f1703065951421x215266414195702370/Aesio%20Adrea.png",
+ "bpi-french-fab-tour.jpg":CDN+"f1703065865737x983674115543581000/BPI%20Fab%20Tour.png",
+ "aesio-virbela.jpg":CDN+"f1707236166363x715114432725205000/Aesio%20Virbela%203.png",
+ "orange-huawei.jpg":CDN+"f1703065809564x519599742265041150/Orange%20x%20Huawey.png",
+ "vinci-eurovia.jpg":CDN+"f1705396097719x232358539410119520/eurovia%20escape.png",
+ "trust-sncf.png":WP+"Logo_SNCF_2011.svg_.png",
+ "trust-bnp.jpeg":WP+"logo-BNP-Paribas-1-scaled-1.jpeg",
+ "trust-amadeus.png":WP+"Amadeus_CRS_Logo.svg_-1.png",
+ "trust-evolis.jpeg":WP+"Evolis-1.jpeg",
+ "trust-ailancy.png":WP+"Ailancy_Logo.png",
+ "trust-toucan-toco.png":WP+"Toucan-Toco-Logo.png",
+ "trust-crans.png":WP+"crans-logo.png",
+ "trust-schneider.png":WP+"SCHNEIDER-ELECTRIC-logo-scaled.png",
+ "trust-dassault.jpeg":WP+"Logo-Dassault-systemes-1.jpeg",
+ "trust-loreal.png":WP+"LOreal-Logo-1.png",
+ "logo-acadomia.jpeg":CDN+"f1702915018799x689192224397165800/Acadomia%20BUGA.jpeg",
+ "logo-aesio.png":CDN+"f1702915032367x427961879829427140/Aesio%20BUGA.png",
+ "logo-ministere.jpeg":CDN+"f1705396911946x534233053835512700/logo-ministere-education-nationale.jpeg",
+ "logo-walibi.png":CDN+"f1702934494332x725145539873071700/Walibi%20BUGA.png",
+ "logo-orange.png":CDN+"f1702934504313x506245710572509760/Orange%20BUGA.png",
+ "logo-bpi.png":CDN+"f1702934473726x509349252473263900/BPI%20BUGA.png",
+ "logo-crunchyroll.png":CDN+"f1702915049335x151884087773324060/Crunchyroll%20BUGA.png",
+ "logo-vinci.png":CDN+"f1702934552028x362251754554639300/Vinci%20BUGA.png",
+ "logo-lg.png":CDN+"f1705396926287x451190779018737300/LG%20BUGA.png",
+ "logo-sciences-po.png":CDN+"f1705394832025x808463349154468600/Sciences%20Po%20BUGA.png",
+ "logo-societe-generale.png":WP+"Societe-Generale-Symbole.png",
+ "logo-nouvelles-donnes.png":WP+"telechargement.png"
+};
+
+/* 16 des 18 visuels Bubble portent deja le logo client incruste dans le fichier.
+   Seules ces deux couvertures en sont depourvues : on superpose le logo en HTML. */
+const LOGOS={
+ "acadomia-ra.jpg":"logo-acadomia.jpeg",
+ "vinci-eurovia.jpg":"logo-vinci.png"
+};
+function src(el,name){el.src='assets/'+name;el.onerror=function(){this.onerror=null;this.src=REMOTE[name]||''}}
+document.querySelectorAll('img[data-a]').forEach(function(i){src(i,i.dataset.a)});
+
+const CASES=[
+ {t:"Acadomia",st:"Parcours ludique interclasse",cat:"Hybride",meta:"HYBRIDE | 160 ÉLÈVES",img:"acadomia-interclasse.jpg",
+  ctx:"La direction d'Acadomia souhaite proposer un interlude ludique aux élèves inscrits aux cours hebdomadaires en centre Acadomia.",
+  sol:"Conception d'un parcours ludique accessible depuis un smartphone à effectuer par équipe en marge des cours. La trame scénaristique est dévoilée quotidiennement afin de maintenir le suspens tout au long de la semaine de stage. Les énigmes sont conçues pour créer des interactions entre les élèves entre eux et avec leur professeur au-delà de la matière enseignée.\nPoint d'orgue du parcours le dernier jour, assuré par un portail virtuel en Réalité Augmentée !"},
+ {t:"Acadomia",st:"Cohésion & apprentissage ludique",cat:"Hybride",meta:"RÉALITÉ AUGMENTÉE | 2019 | 350 PARTICIPANTS",img:"acadomia-ra.jpg",
+  ctx:"Afin d'améliorer l'engagement des élèves, Acadomia souhaite gamifier les intercours. L'occasion de créer du lien entre les élèves et d'ajouter une touche de fun à ces temps d'apprentissage.",
+  sol:"Création d'un escape game en réalité augmentée disponible sur smartphone permettant une immersion totale directement dans la salle de classe. Les élèves doivent résoudre une série d'énigmes sur le thème du hacking en interagissant avec leur environnement."},
+ {t:"Société Générale CIB",st:"Séminaire équipes de vente",cat:"Présentiel",meta:"TEAM BUILDING | 40 PERSONNES",img:"societe-generale.jpg",
+  ctx:"À l'occasion du séminaire annuel rassemblant toute son équipe travaillant aux 4 coins du globe, le manager a contacté les équipes BUGA pour créer du lien entre les participants et rendre ce séminaire aussi fun que mémorable.",
+  sol:"Co-construction du séquentiel de la journée pour alterner les phases de travail et de détente. Conception d'un fil conducteur pour assurer la cohérence des différentes phases. Ateliers ludiques sous forme d'Escape Games par équipe, où chaque énigme a été revue par un expert en neurosciences appliquées dans l'optique de souligner le fonctionnement à Cerveau Total et l'Intelligence Collective."},
+ {t:"Aésio Mutuelle",st:"Journée de la sécurité au travail",cat:"Distanciel",meta:"ESCAPE GAME VIRTUEL | 350 EMPLOYÉS",img:"aesio-zombies.jpg",
+  ctx:"À l'occasion de la Journée mondiale de la sécurité et de la santé au travail, Aésio souhaite sensibiliser ses équipes à sa politique et son Plan de Continuité de l'Activité (PCA). Les équipes Aésio veulent susciter l'intérêt à travers une campagne de communication interne décalée reposant sur un risque improbable : une attaque de zombies !",
+  sol:"BUGA a d'abord conçu une trame scénaristique illustrant le fonctionnement d'une cellule de crise et le rôle de chaque métier concerné par le PCA.\nPuis création d'un Escape Game Virtuel accessible depuis le navigateur web, où les participants doivent déjouer en un minimum de temps (top 10 affiché) une attaque de zombies sur leur lieu de travail en appliquant les recommandations PCA communiquées tout au long de la semaine."},
+ {t:"Parc Astérix",st:"Webapp & parcours ludique d'onboarding",cat:"Présentiel",meta:"ONBOARDING | 1200 EMPLOYÉS",img:"parc-asterix.jpg",
+  ctx:"Dans le cadre de sa Journée d'Intégration annuelle, les équipes RH du Parc Astérix cherchent un moyen de gérer au mieux les 1200 saisonniers attendus, de leur transmettre les fondamentaux de la culture d'entreprise, de leur présenter le parc et de créer du lien de manière fun et engageante.",
+  sol:"Création d'un parcours d'intégration gamifié sous forme d'Escape Game géant dans le parc d'attraction.\nChaque participant ou équipe accède à son parcours personnalisé et suit la progression de son score. L'application permet également de gérer les flux, de communiquer avec les équipes, de rythmer les temps forts et d'effectuer le suivi administratif de la journée."},
+ {t:"Ministère de l'Éducation nationale & Femmes Ingénieures",st:"Forum virtuel réunissant professionnel·les et étudiant·es",cat:"Distanciel",meta:"METAVERS | 9000 ÉLÈVES",img:"ministere-femmes-ingenieures.jpg",
+  ctx:"En partenariat avec le Ministère de l'Éducation nationale, l'association Femmes Ingénieures organise chaque année le forum « Ingénieur·e ? C'est pour moi ! » visant à faire rencontrer des professionnel·les des métiers scientifiques avec les élèves de collège et lycée. Les équipes BUGA sont contactées pour concevoir et déployer un métavers sur mesure.",
+  sol:"Conception d'un métavers 100% français pouvant accueillir jusqu'à 9000 participants et plus de 300 interventions sur 10 thématiques, déployé dans plus d'une centaine d'établissements scolaires."},
+ {t:"Nouvelles Donnes",st:"Formation : parcours de formation gamifié",cat:"Distanciel",meta:"METAVERS | 120 PARTICIPANTS",img:"nouvelles-donnes.jpg",
+  ctx:"L'organisme de formation souhaite proposer une expérience nouvelle et différenciante à ses clients et ajouter une dimension ludique à sa formation de 1200 cadres bancaires.\nLa solution devra être réutilisable pour d'autres clients du secteur banque assurance et servir de vitrine pour susciter l'intérêt de nouveaux clients.",
+  sol:"Mise à disposition d'un univers immersif dédié répondant aux étapes synchrones (animées par un formateur) et asynchrones (accessibles 24/7 pour les apprenants). Ateliers ludo-pédagogiques pour rythmer les temps forts et augmenter le taux d'engagement de l'audience. Interfaçage avec le système d'information de l'organisme (gestion administrative et e-learning)."},
+ {t:"Crunchyroll",st:"Escape game basé sur une licence de manga",cat:"Présentiel",meta:"JAPAN EXPO PARIS | 1 000 PARTICIPANTS",img:"crunchyroll-japan-expo.jpg",
+  ctx:"Leader mondial du streaming d'animés asiatiques, Crunchyroll souhaitait proposer une expérience client inédite sur son stand de 400 m² à la Japan Expo, réunissant plus de 200 000 visiteurs chaque année. C'est également une occasion unique de renforcer son image de marque et de mettre en avant ses principales licences.",
+  sol:"Développé conjointement avec les équipes Crunchyroll Europe et Japon, nous avons créé un scénario basé sur la trame narrative du manga Spy x Family, puis conçu des décors immersifs et cohérents avec la licence. Des mécanismes de jeu ainsi qu'une webapp destinée aux joueurs ont également été spécialement développés pour l'occasion."},
+ {t:"Crunchyroll",st:"Escape game diffusé sur Twitch",cat:"Hybride",meta:"HYBRIDE | 60 PARTICIPANTS",img:"crunchyroll-twitch.jpg",
+  ctx:"Crunchyroll souhaite créer l'évènement en faisant vivre à la communauté manga et anime une expérience inédite durant son festival diffusé sur Twitch. Les équipes BUGA sont contactées pour proposer et concevoir l'animation de clôture du Crunchyroll Festival.",
+  sol:"Conception d'un Escape Game Virtuel en basant les décors et les énigmes sur l'une des licences phares de Crunchyroll.\n4 influenceurs de la communauté manga et anime sont conviés en studio pour effectuer l'escape game en compétition par équipe. Une box contenant indices et éléments de jeu leur est remise. Leur progression est diffusée en direct sur la chaîne Twitch Crunchyroll, suivie par plus de 120 000 personnes."},
+ {t:"Sciences Po Paris",st:"Formation : sensibilisation des ministères à la transformation digitale",cat:"Distanciel",meta:"METAVERS | 40 PARTICIPANTS",img:"sciences-po.jpg",
+  ctx:"Répondant à un appel d'offre de la Banque Mondiale pour former les cadres de ministères africains aux enjeux de la transformation digitale de l'action publique. Activer des comportements collaboratifs et une culture de l'innovation dans la gestion de projets du secteur public.\nExposer les participants à des expériences internationales différentes.",
+  sol:"Création d'un univers virtuel dédié, sécurisé et ergonomique afin de favoriser un déploiement rapide. Articulation du contenu ludo-pédagogique prenant en compte les enjeux politiques et la diversité culturelle des participants.\nDébriefing collaboratif visant à recontextualiser la formation au quotidien professionnel de l'audience."},
+ {t:"Walibi Rhône-Alpes",st:"Onboarding de nouveaux employés",cat:"Présentiel",meta:"HYBRIDE | 220 PARTICIPANTS",img:"walibi.jpg",
+  ctx:"Chaque année, Walibi Rhône-Alpes recrute 220 saisonniers en avril à l'occasion de l'ouverture du parc au public.\nLe défi de l'équipe RH : intégrer ces saisonniers sur une seule journée, durant laquelle elle veut partager sa culture d'entreprise, présenter le parc et renforcer les liens entre les équipes. Le tout de manière fun et engageante.",
+  sol:"Création d'un parcours d'intégration gamifié dans un univers virtuel répliquant le parc Walibi Rhône-Alpes.\nComplété par un parcours ludique, escape game sur mesure dans le parc, favorisant la cohésion des équipes ainsi que l'appropriation des informations clés du parc et du groupe Walibi."},
+ {t:"BPI France",st:"Opération marketing : BIG Tour, promotion des savoir-faire",cat:"Présentiel",meta:"BIG TOUR | 30 000+ PARTICIPANTS",img:"bpi-big-tour.jpg",
+  ctx:"Chaque année, la BPI organise le BIG Tour pour mettre en lumière l'entreprenariat français et les actions de protection de l'environnement.\nL'édition 2020 a mis à l'honneur les entrepreneurs et industriels des métiers de la mer. Les éditions 2021 et 2022 sont orientées autour de la thématique de l'espace.",
+  sol:"Proposer un escape game mobile et autonome allant au-delà du ludique en se mettant au service de l'objectif du client.\nLes participants peuvent se mettre dans la peau d'un sous-marinier durant la mission Thétys ou participer au lancement d'un satellite dans la salle Jupiter ! Avec l'Ademe, Arkema, Ariane et le CNES."},
+ {t:"LG Air Solutions",st:"Fidélisation partenaires",cat:"Distanciel",meta:"METAVERS | 400 PARTICIPANTS",img:"lg-air-solutions.jpg",
+  ctx:"LG Air Solutions souhaite réunir ses 400 partenaires installateurs de climatisations de la région EMEA (25 nationalités, 22 langues) afin de leur présenter les nouveautés globalement puis par produit, secteur d'activité et région.\nLes partenaires n'étant pas des employés, il est très important pour LG de capter leur intérêt tout au long de l'événement et de se distinguer des autres fabricants.",
+  sol:"Collaboration avec les équipes marketing LG pour s'assurer de la cohésion et de l'impact du contenu. Proposition de solutions techniques audio et vidéo pour la gestion du multilingue.\nCréation de mini-jeux en collaboration avec l'éditeur de plateforme. Co-animation de l'évènement avec les équipes LG."},
+ {t:"ADREA Mutuelle",st:"Formation : parcours ludo-pédagogique « Be a leader »",cat:"Hybride",meta:"AVIGNON | 240 PARTICIPANTS",img:"adrea.jpg",
+  ctx:"ADREA forme ses 240 managers de toutes ses directions régionales au parcours « Be a leader ». La formation doit porter sur le leadership, la gestion du changement et la communication à distance.\nElle s'est déroulée dans une ancienne commanderie de Templiers.",
+  sol:"Ingénierie ludo-pédagogique pour construire des ateliers de formation fun et impactants. Pédagogie du détour pour atteindre les objectifs en contournant les obstacles cognitifs et en travaillant sur les représentations des participants.\nCréation d'un Escape Game phygital (physique + VR)."},
+ {t:"BPI, Dassault, Schneider, STM, L'Oréal",st:"Opération marketing : French Fab Tour",cat:"Présentiel",meta:"FRENCH FAB TOUR | 10 000+ PARTICIPANTS",img:"bpi-french-fab-tour.jpg",
+  ctx:"La BPI organise le French Fab Tour pour valoriser les savoir-faire de l'industrie française auprès des étudiants et chercheurs d'emploi.\nChaque partenaire industriel anime son stand et y fait la promotion de ses métiers et technologies utilisées.",
+  sol:"Proposer un escape game mobile allant au-delà du ludique en se mettant au service de l'objectif du client. Rendre accessibles et fun les métiers de l'industrie française : Opérateur Augmenté [RA], Contrôle Qualité [RFID], Développeur [NoCode], CAO [Modèle 3D]."},
+ {t:"Aésio Mutuelle",st:"Parcours de formation & team building virtuels",cat:"Distanciel",meta:"METAVERS | 550 PARTICIPANTS",img:"aesio-virbela.jpg",
+  ctx:"Aésio doit former et « booster » 550 managers compte tenu des contraintes sanitaires. Le client souhaite proposer à ses managers un parcours à la carte pour faire face aux différentes réalités et attentes de chacun.\nFortes contraintes techniques (équipement, connexion) et déontologiques (enregistrements, RGPD).",
+  sol:"Conception et mise en place d'un parcours multiplateforme en fonction du besoin (plénière, classe virtuelle, cohésion d'équipe). Collaboration avec la DSI, la DRH et la Compliance pour déployer les outils et valider le parcours.\nCohésion d'équipe sur Virbela Team Suite avec création d'escape games intégrés aux formations."},
+ {t:"Orange x Huawei",st:"Team building, récompense employés & promotion produit",cat:"Présentiel",meta:"BERMUDES | 550 PARTICIPANTS",img:"orange-huawei.jpg",
+  ctx:"En partenariat avec Huawei, Orange organise un séminaire aux Bermudes pour récompenser ses 400 meilleurs vendeurs monde. L'occasion de faire vivre une expérience exceptionnelle aux participants tout en leur faisant découvrir les fonctionnalités phares du dernier modèle Huawei.",
+  sol:"Entretiens amont avec les équipes techniques et marketing Huawei pour définir les fonctionnalités clés. Développement d'une application dédiée BUGApp Live pour le jeu. Intégration des fonctionnalités (Slow Motion, Zoom optique, Photos basse luminosité, Traduction instantanée) et du Device P20 dans le jeu."},
+ {t:"Vinci — Eurovia",st:"Formation : parcours ludo-pédagogique",cat:"Présentiel",meta:"AIX-EN-PROVENCE | 2020 | 200 PARTICIPANTS",img:"vinci-eurovia.jpg",
+  ctx:"Afin de sensibiliser les équipes aux risques d'accidents sur les chantiers, Eurovia, filiale de Vinci, souhaite ancrer le message de manière ludique et expérientielle.",
+  sol:"Création d'un parcours ludo-pédagogique faisant référence aux métiers et pratiques sur les chantiers, en l'intégrant dans un scénario ludique."}
+];
+
+const TRUST=[
+ ["trust-sncf.png","SNCF"],["trust-bnp.jpeg","BNP Paribas"],["trust-amadeus.png","Amadeus"],
+ ["trust-evolis.jpeg","Evolis"],["trust-ailancy.png","Ailancy"],["trust-toucan-toco.png","Toucan Toco"],
+ ["trust-crans.png","CRANS"],["trust-schneider.png","Schneider Electric"],
+ ["trust-dassault.jpeg","Dassault Systèmes"],["trust-loreal.png","L'Oréal"]
+];
+
+const CATS=["Toutes","Présentiel","Distanciel","Hybride"];
+let active="Toutes";
+const grid=document.getElementById('grid'),filters=document.getElementById('filters');
+
+CATS.forEach(function(c){
+  const b=document.createElement('button');
+  b.className='chip'+(c===active?' on':'');b.textContent=c;
+  b.onclick=function(){active=c;Array.prototype.forEach.call(filters.children,function(x){x.classList.toggle('on',x.textContent===c)});render()};
+  filters.appendChild(b);
+});
+
+function render(){
+  grid.innerHTML='';
+  CASES.filter(function(c){return active==="Toutes"||c.cat===active}).forEach(function(c){
+    const el=document.createElement('article');el.className='card';
+    const lg=LOGOS[c.img];
+    el.innerHTML='<div class="thumb"><span class="tag">'+c.cat+'</span><img class="cov" loading="lazy" alt="'+c.t+'">'+
+      (lg?'<div class="brand"><div class="plate"><img class="lg" loading="lazy" alt="Logo '+c.t+'"></div></div>':'')+'</div>'+
+      '<div class="body"><div class="meta">'+c.meta+'</div><h3>'+c.t+'</h3>'+
+      '<div class="st">'+c.st+'</div><div class="more">Voir le projet &rarr;</div></div>';
+    src(el.querySelector('img.cov'),c.img);
+    if(lg){
+      const li=el.querySelector('img.lg');
+      li.src='assets/'+lg;
+      li.onerror=function(){
+        if(this.dataset.f){this.closest('.brand').remove();return}
+        this.dataset.f=1;this.src=REMOTE[lg]||''
+      };
+    }
+    el.onclick=function(){show(c)};
+    grid.appendChild(el);
+  });
+}
+
+const modal=document.getElementById('modal');
+function show(c){
+  src(document.getElementById('mImg'),c.img);
+  document.getElementById('mImg').alt=c.t;
+  document.getElementById('mMeta').textContent=c.meta;
+  document.getElementById('mTitle').textContent=c.t;
+  document.getElementById('mSub').textContent=c.st;
+  document.getElementById('mCtx').textContent=c.ctx;
+  document.getElementById('mSol').textContent=c.sol;
+  modal.classList.add('open');document.body.style.overflow='hidden';
+}
+function shut(){modal.classList.remove('open');document.body.style.overflow=''}
+document.getElementById('close').onclick=shut;
+modal.onclick=function(e){if(e.target===modal)shut()};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')shut()});
+
+const track=document.getElementById('track');
+TRUST.concat(TRUST).forEach(function(l){
+  const img=document.createElement('img');img.alt=l[1];img.loading='lazy';src(img,l[0]);track.appendChild(img);
+});
+
+render();
+</script>
+</body>
+</html>

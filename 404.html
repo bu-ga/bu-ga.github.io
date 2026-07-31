@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUGA | Page introuvable</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#242F69;--navy-deep:#1a2350;--yellow:#FFD500;--teal:#00BABB}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Montserrat,system-ui,sans-serif;background:var(--navy);color:#fff;
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px;text-align:center}
+img{display:block;margin:0 auto 28px;height:96px;width:auto}
+h1{font-size:clamp(30px,6vw,52px);font-weight:800;line-height:1.1;margin-bottom:14px}
+h1 em{color:var(--yellow);font-style:normal}
+p{font-size:17px;opacity:.88;max-width:520px;margin:0 auto 34px;line-height:1.6}
+.btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;font-size:14px;letter-spacing:.4px;
+  padding:15px 30px;border-radius:30px;transition:transform .15s,filter .15s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn-yellow{background:var(--yellow);color:var(--navy)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.42)}
+</style>
+</head>
+<body>
+<div>
+  <img src="/assets/logo-buga.svg" alt="BUGA">
+  <h1>Cette page a fait un <em>game over</em>.</h1>
+  <p>L'adresse demandée n'existe pas ou n'existe plus. Le reste du site vous attend, et il est nettement plus amusant qu'un message d'erreur.</p>
+  <div class="btns">
+    <a href="/" class="btn btn-yellow">Retour à l'accueil</a>
+    <a href="/gamefolio.html" class="btn btn-ghost">Voir le gamefolio</a>
+  </div>
+</div>
+</body>
+</html>

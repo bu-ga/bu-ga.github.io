@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BUGA | Business Games, gamification &amp; IA</title>
+<meta name="description" content="BUGA met la gamification et l'IA au service de vos enjeux RH et business : escape games, métavers, business games et parcours ludo-pédagogiques sur mesure.">
+<meta property="og:title" content="BUGA | In fun we trust !">
+<meta property="og:description" content="La puissance du jeu au service de vos formations, de vos équipes et de vos événements.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#242F69;--navy-deep:#1a2350;--yellow:#FFD500;--teal:#00BABB;--pink:#FB0040;--grey:#f4f5fa;--text:#2b2b33}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Montserrat,system-ui,sans-serif;color:var(--text);background:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:0;z-index:50;background:var(--navy);box-shadow:0 2px 14px rgba(0,0,0,.18)}
+.nav{display:flex;align-items:center;gap:14px;height:74px}
+.brandlink{display:flex;align-items:center;gap:10px;margin-right:auto}
+.brandlink img{height:46px;width:auto}
+.brandlink span{font-weight:800;color:#fff;font-size:23px;letter-spacing:1px}
+.btn{display:inline-block;border:0;cursor:pointer;font-family:inherit;font-weight:700;font-size:13px;letter-spacing:.4px;
+  padding:13px 24px;border-radius:30px;transition:transform .15s,filter .15s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.05)}
+.btn-teal{background:var(--teal);color:#fff}.btn-yellow{background:var(--yellow);color:var(--navy)}
+.btn-lg{font-size:15px;padding:16px 34px}
+.btn-nav{font-size:15px;padding:14px 30px;box-shadow:0 4px 14px rgba(255,213,0,.28)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.42);font-weight:600;
+  font-size:13px;padding:10px 20px}
+.btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,.08)}
+
+.hero{position:relative;background:var(--navy);color:#fff;min-height:560px;display:flex;align-items:center;overflow:hidden}
+.hero .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.95}
+.hero .wrap{position:relative;z-index:2;padding-top:70px;padding-bottom:80px}
+.hero .inner{max-width:620px}
+.hero h1{font-size:clamp(30px,4.4vw,48px);font-weight:800;line-height:1.15;margin-bottom:18px}
+.hero h2{font-size:clamp(17px,2.2vw,22px);font-weight:700;color:var(--yellow);line-height:1.4;margin-bottom:30px}
+
+.clients{padding:70px 0 60px;text-align:center}
+.clients h2{font-size:clamp(24px,3.2vw,34px);font-weight:800;color:var(--navy)}
+.clients h2 em{color:var(--teal);font-style:normal}
+.clients .sub{color:#5c6076;margin:12px 0 34px;font-size:15px}
+.logos{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:26px;align-items:center;margin-bottom:34px}
+.logos a{display:flex;align-items:center;justify-content:center;height:74px;padding:8px;border-radius:12px;transition:.18s}
+.logos img{max-height:100%;width:auto;object-fit:contain;filter:grayscale(1);opacity:.6;transition:.18s}
+.logos a:hover{background:var(--grey)}
+.logos a:hover img{filter:none;opacity:1}
+
+.config{background:linear-gradient(135deg,var(--teal),#0aa6b8);color:#fff;padding:74px 0;text-align:center}
+.config h2{font-size:clamp(22px,3vw,32px);font-weight:800;line-height:1.3;max-width:760px;margin:0 auto 38px}
+.phrase{font-size:clamp(17px,2.2vw,22px);font-weight:600;max-width:860px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;gap:16px}
+.phrase .ligne{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;line-height:1.4}
+.phrase select,.phrase input{font-family:inherit;font-size:inherit;font-weight:700;color:var(--navy);background:#fff;
+  border:0;border-radius:30px;padding:8px 18px;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.14)}
+.phrase input{width:110px;text-align:center;cursor:text}
+.phrase .suffixe{opacity:.85;font-size:.8em}
+.result{margin-top:34px;min-height:96px;display:flex;align-items:center;justify-content:center}
+.result .card{background:rgba(255,255,255,.14);border:2px solid rgba(255,255,255,.35);border-radius:18px;
+  padding:22px 30px;max-width:640px}
+.result .card b{display:block;font-size:22px;font-weight:800;color:var(--yellow);margin-bottom:6px}
+.result .card p{font-size:15px;line-height:1.55;margin-bottom:14px}
+
+.reviews{padding:76px 0;background:var(--grey)}
+.reviews h2{font-size:clamp(24px,3.2vw,34px);font-weight:800;color:var(--navy);text-align:center;margin-bottom:40px}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.rcard{background:#fff;border-radius:18px;padding:30px 28px;box-shadow:0 6px 22px rgba(36,47,105,.09);display:flex;flex-direction:column}
+.rcard .q{font-size:44px;line-height:1;color:var(--yellow);font-weight:800;margin-bottom:6px}
+.rcard p{font-size:15px;line-height:1.6;font-style:italic;flex:1}
+.rcard .who{margin-top:20px;padding-top:16px;border-top:1px solid #eceef5}
+.rcard .who b{display:block;color:var(--navy);font-size:15px}
+.rcard .who span{font-size:13px;color:#7a7f96}
+
+.why{position:relative;background:#FBE14A;color:var(--navy);padding:84px 0;overflow:hidden}
+.why .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:1;
+  filter:saturate(1.2) brightness(1.1)}
+.why .wrap{position:relative;z-index:2}
+.why .kicker{text-align:center;font-size:13px;font-weight:800;letter-spacing:3px;color:var(--navy);opacity:.7;margin-bottom:10px}
+.why h2{text-align:center;font-size:clamp(28px,4vw,44px);font-weight:800;line-height:1.15;margin-bottom:14px;color:var(--navy)}
+.why h2 em{color:#fff;font-style:normal;text-shadow:0 2px 10px rgba(36,47,105,.25)}
+.why .lead{text-align:center;color:var(--navy);opacity:.85;max-width:620px;margin:0 auto 46px;font-size:16px;font-weight:600}
+.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px}
+.wcard{background:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.9);border-radius:18px;padding:28px 26px;
+  box-shadow:0 6px 22px rgba(36,47,105,.10)}
+.wcard h3{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.wcard p{font-size:14px;line-height:1.62;color:var(--text)}
+
+.contact{padding:80px 0;text-align:center}
+.contact h2{font-size:clamp(24px,3.4vw,36px);font-weight:800;color:var(--navy);margin-bottom:12px}
+.contact p{color:#5c6076;max-width:600px;margin:0 auto 34px}
+form{max-width:620px;margin:0 auto;display:grid;gap:14px;text-align:left}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input[type=text],input[type=email],textarea{font-family:inherit;font-size:15px;padding:14px 18px;border:2px solid #e3e6f0;
+  border-radius:12px;width:100%;transition:.15s;background:#fff;color:var(--text)}
+input:focus,textarea:focus{outline:0;border-color:var(--teal)}
+textarea{min-height:130px;resize:vertical}
+form .btn{justify-self:center;margin-top:6px}
+.note{font-size:12px;color:#9aa0b4;margin-top:10px}
+
+footer{background:var(--navy-deep);color:#fff;padding:52px 0 34px;font-size:14px}
+.fgrid{display:flex;flex-wrap:wrap;gap:36px;justify-content:space-between;align-items:flex-start}
+footer a{opacity:.85}footer a:hover{color:var(--yellow);opacity:1}
+.fbot{margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.16);opacity:.6;font-size:12px}
+@media(max-width:700px){.brandlink span{display:none}.brandlink img{height:40px}
+  .btn-nav{font-size:14px;padding:12px 22px}.btn-ghost{padding:9px 16px;font-size:12px}
+  .row2{grid-template-columns:1fr}.phrase{gap:20px}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a href="index.html" class="brandlink" aria-label="BUGA, retour à l'accueil">
+      <img src="assets/logo-buga.svg" alt="BUGA">
+      <span>BUGA</span>
+    </a>
+    <a href="gamefolio.html" class="btn btn-yellow btn-nav">Gamefolio</a>
+    <a href="#contact" class="btn btn-ghost">Contactez-nous</a>
+  </div>
+</header>
+
+<div class="hero">
+  <img class="bg" data-a="bg-space.png" alt="">
+  <div class="wrap"><div class="inner">
+    <h1>Besoin d'une solution fun et engageante pour sensibiliser votre audience ?</h1>
+    <h2>Mettez la gamification et l'IA au service de vos enjeux RH et Business :</h2>
+    <a href="#configurateur" class="btn btn-yellow btn-lg">CRÉEZ VOTRE BUSINESS GAME !</a>
+  </div></div>
+</div>
+
+<section class="clients">
+  <div class="wrap">
+    <h2>Ils ont ajouté une touche de <em>fun</em> à leurs projets :</h2>
+    <p class="sub">Cliquez sur les logos pour découvrir l'une des solutions BUGA apportées à ces entreprises.</p>
+    <div class="logos" id="logos"></div>
+    <a href="gamefolio.html" class="btn btn-teal btn-lg">Rejoignez-les !</a>
+  </div>
+</section>
+
+<section class="config" id="configurateur">
+  <div class="wrap">
+    <h2>Complétez cette phrase pour découvrir la solution BUGA au plus proche de votre besoin :</h2>
+    <div class="phrase">
+      <div class="ligne">
+        <span>J'ai un projet de</span>
+        <select id="fProjet">
+          <option value="">—</option>
+          <option>Sensibilisation</option><option>Formation</option>
+          <option>Onboarding</option><option>Team Building</option>
+        </select>
+      </div>
+      <div class="ligne">
+        <span>à destination de mes</span>
+        <select id="fDest">
+          <option value="">—</option>
+          <option>Équipes</option><option>Clients</option>
+          <option>Apprenants</option><option>Jeunes</option>
+        </select>
+      </div>
+      <div class="ligne">
+        <span>au format</span>
+        <select id="fFormat">
+          <option value="">—</option>
+          <option>Présentiel</option><option>Distanciel</option><option>Hybride</option>
+        </select>
+      </div>
+      <div class="ligne">
+        <span>pour</span>
+        <input type="number" id="fNb" min="15" max="9000" placeholder="150">
+        <span>participants <span class="suffixe">(de 15 à 9 000).</span></span>
+      </div>
+    </div>
+    <div class="result" id="result"></div>
+  </div>
+</section>
+
+<section class="reviews" id="avis">
+  <div class="wrap">
+    <h2>Ils parlent de nous !</h2>
+    <div class="rgrid">
+      <div class="rcard"><div class="q">&ldquo;</div>
+        <p>Un impact 6 fois plus important qu'attendu malgré l'aspect rébarbatif du sujet.</p>
+        <div class="who"><b>Responsable des Risques</b><span>Aésio</span></div></div>
+      <div class="rcard"><div class="q">&ldquo;</div>
+        <p>Une manière efficace et ludique de former rapidement un grand nombre de collaborateurs.</p>
+        <div class="who"><b>Responsable des Ressources Humaines</b><span>Walibi</span></div></div>
+      <div class="rcard"><div class="q">&ldquo;</div>
+        <p>Mes équipes terrain sont beaucoup plus réceptives à ce format qu'à une présentation ou une formation classique.</p>
+        <div class="who"><b>Responsable d'agence</b><span>Vinci</span></div></div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <a href="gamefolio.html" class="btn btn-yellow btn-lg">Voir notre gamefolio</a>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="solutions">
+  <img class="bg" data-a="bg-valueprop.png" alt="">
+  <div class="wrap">
+    <div class="kicker">POURQUOI BUGA ?</div>
+    <h2>IN <em>FUN</em> WE TRUST !</h2>
+    <p class="lead">Travailler avec les équipes BUGA, c'est l'assurance d'avoir une solution :</p>
+    <div class="wgrid">
+      <div class="wcard"><h3>200% FUN</h3>
+        <p>Le jeu est un formidable vecteur d'engagement et d'apprentissage. Notre expertise consiste à prendre les meilleures mécaniques et technologies issues du monde des jeux pour les mettre à votre service.</p></div>
+      <div class="wcard"><h3>100% alignée avec vos objectifs</h3>
+        <p>Notre cœur de métier c'est la gamification, le fun... mais pas que ! Notre expertise c'est aussi d'appréhender au mieux vos contraintes et objectifs pour concevoir une solution adaptée à votre réalité.</p></div>
+      <div class="wcard"><h3>100% française</h3>
+        <p>Sécurisée, respectueuse des réglementations en vigueur et des données de ses utilisateurs.</p></div>
+      <div class="wcard"><h3>100% accessible</h3>
+        <p>Que cela soit en termes de matériel nécessaire, d'autorisations logicielles et, surtout, d'expérience utilisateur.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Envie d'ajouter une touche de fun à votre travail ?</h2>
+    <p>Une belle histoire commence toujours par quelques mots. Dites-nous en plus sur votre projet et nous vous accompagnerons pour le rendre fun et impactant.</p>
+    <!-- Remplacer VOTRE_ID par l'identifiant du formulaire créé sur formspree.io -->
+    <form action="https://formspree.io/f/VOTRE_ID" method="POST">
+      <div class="row2">
+        <input type="text" name="nom" placeholder="Nom" required>
+        <input type="email" name="email" placeholder="Adresse email" required>
+      </div>
+      <input type="text" name="entreprise" placeholder="Nom de l'entreprise">
+      <textarea name="message" placeholder="Votre projet en quelques mots" required></textarea>
+      <button type="submit" class="btn btn-teal btn-lg">Envoyer</button>
+    </form>
+    <p class="note">Le formulaire pointe vers Formspree tant qu'aucun service d'envoi n'est configuré.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap fgrid">
+    <div>
+      <div style="font-weight:800;color:var(--yellow);font-size:20px;margin-bottom:8px">BUGA</div>
+      <div style="opacity:.75">Business Games</div>
+    </div>
+    <div>
+      <div style="font-weight:700;margin-bottom:8px">Contact</div>
+      <a href="mailto:hello@buga.fr">hello@buga.fr</a><br>
+      <span style="opacity:.75">Avignon &nbsp;|&nbsp; Paris</span>
+    </div>
+    <div>
+      <div style="font-weight:700;margin-bottom:8px">Suivez-nous</div>
+      <a href="https://www.linkedin.com/company/bu-ga" target="_blank" rel="noopener">LinkedIn @bu-ga</a>
+    </div>
+  </div>
+  <div class="wrap fbot">&copy; BUGA &nbsp;&middot;&nbsp; <a href="mentions-legales.html">Mentions légales</a></div>
+</footer>
+
+<script>
+/* Images : fichiers locaux, avec repli sur la source distante tant que
+   le dossier assets/ n'a pas ete rempli par telecharger-assets.ps1 */
+const CDN='https://s3.amazonaws.com/appforest_uf/';
+const REMOTE={
+ "bg-space.png":CDN+"f1702913171746x552800822860338940/Background-space-7.2.png",
+ "bg-valueprop.png":CDN+"f1702990599535x697228785973379500/Background%20Value%20prop%20Website%20BUGA.png",
+ "logo-aesio.png":CDN+"f1702915032367x427961879829427140/Aesio%20BUGA.png",
+ "logo-ministere.jpeg":CDN+"f1705396911946x534233053835512700/logo-ministere-education-nationale.jpeg",
+ "logo-walibi.png":CDN+"f1702934494332x725145539873071700/Walibi%20BUGA.png",
+ "logo-orange.png":CDN+"f1702934504313x506245710572509760/Orange%20BUGA.png",
+ "logo-bpi.png":CDN+"f1702934473726x509349252473263900/BPI%20BUGA.png",
+ "logo-crunchyroll.png":CDN+"f1702915049335x151884087773324060/Crunchyroll%20BUGA.png",
+ "logo-vinci.png":CDN+"f1702934552028x362251754554639300/Vinci%20BUGA.png",
+ "logo-lg.png":CDN+"f1705396926287x451190779018737300/LG%20BUGA.png",
+ "logo-sciences-po.png":CDN+"f1705394832025x808463349154468600/Sciences%20Po%20BUGA.png",
+ "logo-acadomia.jpeg":CDN+"f1702915018799x689192224397165800/Acadomia%20BUGA.jpeg"
+};
+function src(el,name){
+  el.src='assets/'+name;
+  el.onerror=function(){this.onerror=null;this.src=REMOTE[name]||''};
+}
+document.querySelectorAll('img[data-a]').forEach(i=>src(i,i.dataset.a));
+
+const CLIENTS=[
+ ["logo-aesio.png","Aésio Mutuelle"],["logo-ministere.jpeg","Ministère de l'Éducation nationale"],
+ ["logo-walibi.png","Walibi"],["logo-orange.png","Orange"],["logo-bpi.png","BPI France"],
+ ["logo-crunchyroll.png","Crunchyroll"],["logo-vinci.png","Vinci"],["logo-lg.png","LG"],
+ ["logo-sciences-po.png","Sciences Po Paris"],["logo-acadomia.jpeg","Acadomia"]
+];
+const box=document.getElementById('logos');
+CLIENTS.forEach(function(c){
+  const a=document.createElement('a');a.href='gamefolio.html';a.title=c[1];
+  const im=document.createElement('img');im.alt=c[1];im.loading='lazy';src(im,c[0]);
+  a.appendChild(im);box.appendChild(a);
+});
+
+const OFFRES={
+ "Présentiel":{n:"PLAY",d:"on site | présentiel",t:"Ateliers, escape games géants et parcours ludiques animés sur votre site ou sur votre événement."},
+ "Distanciel":{n:"GAME",d:"online | digital",t:"Escape games virtuels, métavers et parcours digitaux accessibles depuis un navigateur, sans installation."},
+ "Hybride":{n:"LAB",d:"sur mesure | hybride",t:"Un dispositif conçu de A à Z, mêlant présentiel et digital, pour les besoins qui ne rentrent dans aucune case."}
+};
+const res=document.getElementById('result');
+function maj(){
+  const p=document.getElementById('fProjet').value,
+        d=document.getElementById('fDest').value,
+        f=document.getElementById('fFormat').value,
+        n=parseInt(document.getElementById('fNb').value||0,10);
+  if(!p||!d||!f){res.innerHTML='';return}
+  const o=OFFRES[f];
+  const vol=n>=1000?" Votre volume nous oriente vers un dispositif clé en main, avec un tarif unitaire dégressif.":
+            (n&&n<15?" Pensez à indiquer au moins 15 participants.":"");
+  res.innerHTML='<div class="card"><b>'+o.n+' &mdash; '+o.d+'</b><p>'+o.t+vol+'</p>'+
+    '<a href="#contact" class="btn btn-yellow">Parlons de votre projet '+p.toLowerCase()+' !</a></div>';
+}
+['fProjet','fDest','fFormat','fNb'].forEach(function(id){document.getElementById(id).addEventListener('change',maj)});
+document.getElementById('fNb').addEventListener('input',maj);
+</script>
+</body>
+</html>
